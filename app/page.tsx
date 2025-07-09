@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
-import Head from "next/head";
-import Image from "next/image";
+import { auth } from "@/lib/auth/auth";
 
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth()
+
   return (
     <main className="p-3 font-">
-      <Button effect="gooeyLeft">Create account</Button>
+      <Button effect="gooeyLeft">{session?.user.id}</Button>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
     </main>
   );
 }

@@ -1,0 +1,51 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "fozW3n8xA53X6iWsI7nOR",
+      "type": "text",
+      "x": 268.171875,
+      "y": 130.953125,
+      "width": 631.9179077148438,
+      "height": 175,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "index": "a0",
+      "roundness": null,
+      "seed": 595372434,
+      "version": 542,
+      "versionNonce": 1769483778,
+      "isDeleted": false,
+      "boundElements": [],
+      "updated": 1752209036274,
+      "link": null,
+      "locked": false,
+      "text": "1. dapet response login\n2. buat cookie pakai iron session\n3. setiap client mau interaksi harus melalu api proxy nextjs\n4. di api nextjs, kira extract AT yang ada di session untuk\nmenjadikanya bearer token\n5. jika dapet 401 refresh token rotasi, nanti pikirin lagi rotasi\nnya gimana",
+      "fontSize": 20,
+      "fontFamily": 5,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "1. dapet response login\n2. buat cookie pakai iron session\n3. setiap client mau interaksi harus melalu api proxy nextjs\n4. di api nextjs, kira extract AT yang ada di session untuk menjadikanya bearer token\n5. jika dapet 401 refresh token rotasi, nanti pikirin lagi rotasi nya gimana",
+      "autoResize": false,
+      "lineHeight": 1.25
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "gridStep": 5,
+    "gridModeEnabled": false,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}

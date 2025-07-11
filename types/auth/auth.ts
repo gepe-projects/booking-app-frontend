@@ -10,3 +10,13 @@ interface Data {
   refresh_token: string
   user: User
 }
+
+export interface RefreshResponse {
+  status: string;
+  data?: {
+    access_token: string;
+    refresh_token: string;
+  };
+  errors?: string
+}
+

@@ -10,10 +10,12 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { cn } from "@/lib/utils"
+import { axiosClient } from "@/lib/axios"
+import { cn, isAxiosApiError } from "@/lib/utils"
+import { ApiError } from "@/types"
 import { useForm } from "@tanstack/react-form"
+import { AxiosError } from "axios"
 import { AlertCircleIcon } from "lucide-react"
-import { signIn } from "next-auth/react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useState } from "react"
 
@@ -36,24 +38,18 @@ export function LoginForm({
     },
     onSubmit: async ({ value }) => {
       try {
-        const result = await signIn('credentials', {
-          email: value.email,
-          password: value.password,
-          redirect: false
-        });
-        // Periksa hasil signIn
-        if (result?.error) {
-          setGlobalError(result.code!);
-        } else {
-          // Redirect manual setelah berhasil login
-          router.replace(callbackUrl || '/');
-        }
+        const result = await axiosClient.post('/auth/login', value)
+        console.log(result);
+
+        router.replace(callbackUrl || '/')
       } catch (error) {
-        console.error(error);
-        if (error instanceof Error) {
-          setGlobalError(error.message);
+        if (isAxiosApiError(error)) {
+          console.log(error.response?.data.errors.error);
+          setGlobalError(error.response?.data.errors.error);
+          return
         } else {
           setGlobalError('An unknown error occurred');
+          return
         }
       }
     },
